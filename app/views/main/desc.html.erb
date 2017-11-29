@@ -1,0 +1,50 @@
+<%= link_to "Back", root_path %>
+<h1>Description on how I did </h1>
+
+<h2>divide by zero</h2>
+<p>
+  I started search on <%= link_to 'stackoverflow.com',"https://stackoverflow.com" %>
+
+  <pre>
+    begin
+      puts 'devide by zero about to start.'
+      raise 5/0
+    rescue Exception => ex
+      @ad= ex.backtrace.inspect
+    end
+  </pre>
+  I used the above code to send the error to view and then render  to browser
+</p>
+
+<h2>Extracting title of Nytimes.com</h2>
+<p>
+  I started search on <%= link_to 'stackoverflow.com',"https://stackoverflow.com" %> and
+  I used the following article
+  <%= link_to 'Extract information from the web with Ruby',"https://www.ibm.com/developerworks/library/os-extractruby/index.html" %>
+  and then I used the following code to extract links with the class "story-heading"
+  <pre>
+    require 'rubygems'
+    require 'nokogiri'
+    require 'open-uri'
+      cls = 'story-heading'
+      doc = Nokogiri::HTML(open("https://www.nytimes.com/"))
+
+      # Find the link of interest
+      @link = doc.xpath("//*[@class=\"#{cls}\"]")
+  </pre>
+and send to view and then render to browser
+</p>
+
+<hr/>
+<h2>Resources I used</h2>
+
+<%= link_to 'nokogiri documentation',"http://www.nokogiri.org/" %> <br/>
+<%= link_to 'stackoverflow.com',"https://stackoverflow.com" %> <br/>
+<%= link_to 'Extract information from the web with Ruby',"https://www.ibm.com/developerworks/library/os-extractruby/index.html" %>
+
+
+
+
+
+
+
